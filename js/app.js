@@ -1,7 +1,8 @@
 
 $(document).ready(function(){
-	// Global variable to store maximum number to be generated
-	MAXVAL = 100;
+	// Global variables to store maximum number to be generated and secret number
+	var MAXVAL = 100;
+	var SECRETNUM ='';
 	
 	window.onload = function() {
 		newGame();
@@ -9,15 +10,18 @@ $(document).ready(function(){
 	
 	function newGame() {
 		// Generate a number between 1 and 100
-		var secretNum = Math.floor((Math.random() * MAXVAL) + 1);
-		console.log("secretNum = " + secretNum);
-		
-		return secretNum;
+		SECRETNUM = Math.floor((Math.random() * MAXVAL) + 1);
+		console.log("SECRETNUM = " + SECRETNUM);
 	}
 	
 	// New Game Button
 	$('.new').click(function() {
 		newGame();
+	});
+	
+	// Guess Button
+	$('#guessButton').click(function() {
+		//console.log("Guess button pushed: SECRETNUM = " + SECRETNUM);
 	});
 	
 	/*--- Display information modal box ---*/
