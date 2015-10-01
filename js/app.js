@@ -5,7 +5,6 @@ $(document).ready(function(){
 	var SECRETNUM ='';
 	
 	window.onload = newGame;
-	//newGame();
 	
 	function newGame() {
 		// Generate a number between 1 and 100
