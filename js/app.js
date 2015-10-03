@@ -12,8 +12,7 @@ $(document).ready(function(){
 		console.log("SECRETNUM = " + SECRETNUM);
 	}
 	
-	/*function checkGuess() {
-		var guessInput = document.getElementById('userGuess');
+	function checkGuess(guessInput) {
 		var guess = guessInput.value;
 		var absGuess = Math.abs(SECRETNUM - guess);
 		
@@ -36,7 +35,7 @@ $(document).ready(function(){
 			alert("Congratulations! \nYou guessed the correct number!");
 			newGame();
 		}
-	}*/
+	}
 	
 	// New Game Button
 	$('.new').click(function() {
@@ -46,9 +45,14 @@ $(document).ready(function(){
 	
 	// Guess Button
 	$('#guessButton').click(function(event) {
-		event.preventDefault();
-		console.log("Guess Button clicked...");	
-		//checkGuess();
+		var guessInput = document.getElementById('userGuess');
+		
+		// Check for input
+		if (guessInput.value) {
+			event.preventDefault();
+			checkGuess(guessInput);
+		}
+	
 	});
 	
 	/*--- Display information modal box ---*/
