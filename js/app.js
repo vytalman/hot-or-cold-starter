@@ -47,7 +47,7 @@ $(document).ready(function(){
 	$('#guessButton').click(function(event) {
 		var guessInput = document.getElementById('userGuess');
 		
-		
+		// Test for input
 		if (guessInput.value) {
 			event.preventDefault();
 			checkGuess(guessInput);
