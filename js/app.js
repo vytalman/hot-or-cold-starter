@@ -9,7 +9,7 @@ $(document).ready(function(){
 	function newGame() {
 		// Generate a number between 1 and 100
 		SECRETNUM = Math.floor((Math.random() * MAXVAL) + 1);
-		console.log("SECRETNUM = " + SECRETNUM);
+		//console.log("SECRETNUM = " + SECRETNUM);
 	}
 	
 	function checkGuess(guessInput) {
