@@ -63,7 +63,7 @@ $(document).ready(function(){
 	});
 	
 	var addGuess = function (guess, guessTemp) {
-		$('#guessList').append("<li>" + guess + ": " + guessTemp + "</li>");
+		$('#guessList').prepend("<li>" + guess + ": " + guessTemp + "</li>");
 	}
 	
 	/*--- Display information modal box ---*/
