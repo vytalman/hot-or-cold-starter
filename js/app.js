@@ -8,13 +8,25 @@ $(document).ready(function(){
 	
 	function newGame() {
 		$('#guessList').empty();
+		$('#count').text('0');
 		// Generate a number between 1 and 100
 		SECRETNUM = Math.floor((Math.random() * MAXVAL) + 1);
-		console.log("SECRETNUM = " + SECRETNUM);
 	}
 	
-	function checkGuess(guessInput) {
+	function processGuess(guessInput) {
 		var guess = guessInput.value;
+		
+		if (guess >= 1 && guess <= MAXVAL) {
+			var span = $('#count');
+			
+			span.text(Number(span.text()) + 1);
+			checkGuess(guess);
+		} else {
+			alert("Please enter a number between 1 and " + MAXVAL + ".");
+		}
+	}
+	
+	function checkGuess(guess) {
 		var absGuess = Math.abs(SECRETNUM - guess);
 		var guessTemp = '';
 		
@@ -22,19 +34,19 @@ $(document).ready(function(){
 			// Ice Cold
 			guessTemp = "Ice Cold";
 			addGuess(guess, guessTemp);
-		} else if (absGuess>=30 && absGuess<50) {
+		} else if (absGuess>=30) {
 			// Cold
 			guessTemp = "Cold";
 			addGuess(guess, guessTemp);
-		} else if (absGuess>=20 && absGuess<30) {
+		} else if (absGuess>=20) {
 			// Warm
 			guessTemp = "Warm";
 			addGuess(guess, guessTemp);
-		} else if (absGuess>=10 && absGuess<20) {
+		} else if (absGuess>=10) {
 			// Hot
 			guessTemp = "Hot";
 			addGuess(guess, guessTemp);
-		} else if (absGuess>=1 && absGuess<10) {
+		} else if (absGuess>=1) {
 			// Very Hot
 			guessTemp = "Very Hot";
 			addGuess(guess, guessTemp);
@@ -56,7 +68,7 @@ $(document).ready(function(){
 		// Test for input
 		if (guessInput.value) {
 			event.preventDefault();
-			checkGuess(guessInput);
+			processGuess(guessInput);
 			$('#userGuess').val('');
 		}
 	
@@ -78,5 +90,3 @@ $(document).ready(function(){
   	});
 
 });
-
-
